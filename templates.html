@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cabinet Stomatologic Ana Pug</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --accent: #6c63ff;
+  --accent-hover: #554ee8;
+  --bg: #f5f7ff;
+  --text-dark: #2c2c54;
+  --text-gray: #636e72;
+  --white: #fff;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #f5f7ff, #fdfbff);
+  color: var(--text-dark);
+}
+
+header {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 1.4em;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+}
+
+.logo span {
+  font-size: 1.8em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 25px;
+}
+
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-gray);
+  font-weight: 500;
+  transition: 0.2s;
+  padding-bottom: 4px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+section {
+  display: none;
+  padding: 50px 20px;
+  max-width: 900px;
+  margin: 40px auto;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  animation: fadeIn 0.5s ease;
+}
+
+section.active {
+  display: block;
+}
+
+h1, h2, h3 {
+  color: var(--accent);
+  text-align: center;
+}
+
+p {
+  text-align: justify;
+  color: var(--text-gray);
+}
+
+input, textarea, button {
+  display: block;
+  margin: 10px auto;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #cfd8dc;
+  font-size: 1em;
+  width: 100%;
+  max-width: 500px;
+  transition: 0.2s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(108,99,255,0.15);
+  outline: none;
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  max-width: 220px;
+  border-radius: 10px;
+}
+
+button:hover {
+  background: var(--accent-hover);
+  transform: scale(1.04);
+  box-shadow: 0 4px 12px rgba(108,99,255,0.3);
+}
+
+.logoutBtn {
+  background: #e63946;
+}
+.logoutBtn:hover {
+  background: #c42d3b;
+  box-shadow: 0 4px 12px rgba(230,57,70,0.3);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 20px;
+  background: white;
+}
+
+th {
+  background: var(--accent);
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  color: var(--text-gray);
+}
+
+tr:nth-child(even) {
+  background-color: #f0f3ff;
+}
+
+tr:hover {
+  background: #eaf0ff;
+  transition: background 0.3s;
+}
+
+.form-container {
+  margin-top: 25px;
+  padding: 25px;
+  background: #f8f9ff;
+  border: 1px solid #d9e0ff;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  margin-top: 40px;
+  font-size: 0.9em;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="nav-container">
+  <div class="logo"><span>🦷</span> Cabinet Ana Pug</div>
+  <nav>
+    <ul>
+      <li><a href="#" class="tab-link active" data-target="login">Login</a></li>
+      <li><a href="#" class="tab-link" data-target="programari">Programări</a></li>
+      <li><a href="#" class="tab-link" data-target="despre">Despre cabinet</a></li>
+      <li><a href="#" class="tab-link" data-target="contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+</header>
+
+<section id="login" class="active">
+<h2>Login Doctor</h2>
+<div class="form-container">
+  <input type="text" id="username" placeholder="Username" required>
+  <input type="password" id="password" placeholder="Parola" required>
+  <button id="loginBtn">Autentificare</button>
+</div>
+</section>
+
+<section id="programari">
+<h2>Programări Pacienți</h2>
+<div id="welcomeDoctor" style="text-align:center;margin-bottom:15px;font-weight:500;"></div>
+<button class="logoutBtn" id="logoutBtn">Logout</button>
+<input type="file" id="fileInput" accept=".csv">
+<input type="text" id="searchBar" placeholder="🔍 Caută pacient după nume...">
+
+<table id="programariTable">
+<thead>
+<tr>
+  <th>Nume</th>
+  <th>Telefon</th>
+  <th>Email</th>
+  <th>Data</th>
+  <th>Ora</th>
+  <th>Status</th>
+  <th>Șterge</th>
+</tr>
+</thead>
+<tbody>
+<tr><td colspan="7">Încarcă un fișier CSV sau adaugă o programare.</td></tr>
+</tbody>
+</table>
+
+<div class="form-container">
+<h3>🦷 Adaugă programare</h3>
+<input type="text" id="nume" placeholder="Nume și prenume" required>
+<input type="tel" id="telefon" placeholder="Telefon (10 cifre)" required pattern="[0-9]{10}">
+<input type="date" id="data" required>
+<input type="time" id="ora" required>
+<textarea id="motiv" placeholder="Motivul vizitei..." rows="3" required></textarea>
+<button id="adaugaProgramareBtn">Adaugă programarea</button>
+</div>
+</section>
+
+<section id="despre">
+<h2>Despre cabinet</h2>
+<p>Cabinetul stomatologic <b>Ana Pug</b> oferă servicii complete de stomatologie pediatrică și generală, într-un mediu prietenos și modern. Misiunea noastră este să oferim tratamente sigure, eficiente și fără durere, pentru zâmbete sănătoase și fericite.</p>
+<p>Utilizăm cele mai noi tehnologii, materiale de calitate și o abordare empatică pentru fiecare pacient, indiferent de vârstă.</p>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<p><b>Adresă:</b> București</p>
+<p><b>Telefon:</b> 0771 033 439</p>
+<p><b>Email:</b> anamarialix@yahoo.ro</p>
+<p><b>Program:</b> Luni - Vineri, 09:00 - 18:00</p>
+</section>
+
+<footer>© 2025 Cabinet Stomatologic Ana Pug — Toate drepturile rezervate.</footer>
+
+<script>
+// TAB NAVIGARE
+document.querySelectorAll('.tab-link').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelectorAll('.tab-link').forEach(a => a.classList.remove('active'));
+    document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+    link.classList.add('active');
+    document.getElementById(link.dataset.target).classList.add('active');
+  });
+});
+
+// DOCTORI
+const doctori = [
+  { username: "ana", parola: "1234", numeAfisat: "Dr. Ana Pug" },
+  { username: "mihai", parola: "5678", numeAfisat: "Dr. Mihai Popescu" }
+];
+
+// LOGIN
+document.getElementById("loginBtn").addEventListener("click", () => {
+  const username = document.getElementById("username").value.trim();
+  const parola = document.getElementById("password").value.trim();
+  const doctor = doctori.find(d => d.username === username && d.parola === parola);
+  if (doctor) {
+    localStorage.setItem("doctorCurent", JSON.stringify(doctor));
+    alert(`✅ Bun venit, ${doctor.numeAfisat}`);
+    showSection('programari');
+    loadFromLocal();
+    document.getElementById("welcomeDoctor").textContent = `Bun venit, ${doctor.numeAfisat}`;
+  } else {
+    alert("❌ Username sau parola incorecte!");
+  }
+});
+
+// LOGOUT
+document.getElementById("logoutBtn").addEventListener("click", () => {
+  localStorage.removeItem("doctorCurent");
+  showSection('login');
+  document.getElementById("username").value = "";
+  document.getElementById("password").value = "";
+});
+
+// SHOW SECTION
+function showSection(id) {
+  document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// PROGRAMĂRI
+const fileInput = document.getElementById("fileInput");
+const tableBody = document.querySelector("#programariTable tbody");
+const searchBar = document.getElementById("searchBar");
+
+function addToTable(programare, index) {
+  const tr = document.createElement("tr");
+
+  [programare.nume, programare.telefon, programare.email || '', programare.data, programare.ora].forEach(text => {
+    const td = document.createElement("td");
+    td.textContent = text;
+    tr.appendChild(td);
+  });
+
+  // Status
+  const statusTd = document.createElement("td");
+  const statusBtn = document.createElement("button");
+  statusBtn.textContent = programare.status;
+  statusBtn.onclick = () => {
+    let programari = JSON.parse(localStorage.getItem("programari"));
+    programari[index].status = programari[index].status === "Nerezolvat" ? "Rezolvat" : "Nerezolvat";
+    localStorage.setItem("programari", JSON.stringify(programari));
+    loadFromLocal();
+  };
+  statusTd.appendChild(statusBtn);
+  tr.appendChild(statusTd);
+
+  // Ștergere
+  const deleteTd = document.createElement("td");
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "🗑️";
+  deleteBtn.style.background = "#ff6b6b";
+  deleteBtn.style.border = "none";
+  deleteBtn.style.color = "white";
+  deleteBtn.style.cursor = "pointer";
+  deleteBtn.style.padding = "6px 10px";
+  deleteBtn.style.borderRadius = "8px";
+  deleteBtn.onclick = () => {
+    if (confirm(`Sigur vrei să ștergi programarea pentru ${programare.nume}?`)) {
+      let programari = JSON.parse(localStorage.getItem("programari"));
+      programari.splice(index, 1);
+      localStorage.setItem("programari", JSON.stringify(programari));
+      loadFromLocal();
+    }
+  };
+  deleteTd.appendChild(deleteBtn);
+  tr.appendChild(deleteTd);
+
+  tableBody.appendChild(tr);
+}
+
+function saveToLocal(programare) {
+  let programari = JSON.parse(localStorage.getItem("programari")) || [];
+  programari.push(programare);
+  localStorage.setItem("programari", JSON.stringify(programari));
+}
+
+function loadFromLocal() {
+  const doctorCurent = JSON.parse(localStorage.getItem("doctorCurent"));
+  if (!doctorCurent) return;
+
+  let programari = JSON.parse(localStorage.getItem("programari")) || [];
+  const programariDoctor = programari.filter(p => p.doctor === doctorCurent.username);
+
+  tableBody.innerHTML = "";
+  if (programariDoctor.length === 0) {
+    tableBody.innerHTML = '<tr><td colspan="7">Nu există programări.</td></tr>';
+  } else {
+    programariDoctor.forEach((p, idx) => addToTable(p, idx));
+  }
+}
+
+// CSV
+fileInput.addEventListener("change", function() {
+  const file = this.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    const text = e.target.result.trim();
+    const rows = text.split(/\r?\n/).map(r => r.split(","));
+    const dataRows = rows.slice(1);
+    const doctorCurent = JSON.parse(localStorage.getItem("doctorCurent"));
+    if (!doctorCurent) return;
+
+    dataRows.forEach(row => {
+      const [nume, telefon, email, data, ora] = row.map(cell => cell.trim());
+      const programare = { nume, telefon, email, data, ora, doctor: doctorCurent.username, status: "Nerezolvat" };
+      saveToLocal(programare);
+    });
+    loadFromLocal();
+  };
+  reader.readAsText(file, "UTF-8");
+});
+
+// SEARCH
+searchBar.addEventListener("input", function() {
+  const filter = this.value.toLowerCase();
+  const rows = tableBody.getElementsByTagName("tr");
+  for (let i = 0; i < rows.length; i++) {
+    const numeCell = rows[i].getElementsByTagName("td")[0];
+    if (numeCell) {
+      const txtValue = numeCell.textContent.toLowerCase();
+      rows[i].style.display = txtValue.includes(filter) ? "" : "none";
+    }
+  }
+});
+
+// ADAUGĂ PROGRAMARE
+document.getElementById("adaugaProgramareBtn").addEventListener("click", () => {
+  const doctorCurent = JSON.parse(localStorage.getItem("doctorCurent"));
+  if (!doctorCurent) return alert("Trebuie să fii autentificat!");
+
+  const nume = document.getElementById("nume").value.trim();
+  const telefon = document.getElementById("telefon").value.trim();
+  const data = document.getElementById("data").value;
+  const ora = document.getElementById("ora").value;
+  const motiv = document.getElementById("motiv").value.trim();
+
+  const programare = { nume, telefon, email:'', data, ora, motiv, doctor: doctorCurent.username, status: "Nerezolvat" };
+  saveToLocal(programare);
+  loadFromLocal();
+  alert("✅ Programarea a fost adăugată!");
+
+  document.getElementById("nume").value = "";
+  document.getElementById("telefon").value = "";
+  document.getElementById("data").value = "";
+  document.getElementById("ora").value = "";
+  document.getElementById("motiv").value = "";
+});
+
+// AUTOLOAD DOCTOR
+window.addEventListener("load", () => {
+  const doctorCurent = JSON.parse(localStorage.getItem("doctorCurent"));
+  if (doctorCurent) {
+    showSection('programari');
+    loadFromLocal();
+    document.getElementById("welcomeDoctor").textContent = `Bun venit, ${doctorCurent.numeAfisat}`;
+  }
+});
+</script>
+
+</body>
+</html>
