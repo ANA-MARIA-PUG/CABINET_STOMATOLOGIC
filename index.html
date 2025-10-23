@@ -477,6 +477,49 @@ window.addEventListener("load", () => {
   }
 });
 </script>
+<script type="module">
+  // Importă SDK-urile necesare
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } 
+    from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+
+  // Configurația aplicației tale Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyAtItUIqd3-ulqMZ-YDbDEhSldJ8NezCfY",
+    authDomain: "cabinet-ana.firebaseapp.com",
+    projectId: "cabinet-ana",
+    storageBucket: "cabinet-ana.firebasestorage.app",
+    messagingSenderId: "91669761239",
+    appId: "1:91669761239:web:ad6420bbb9322a5ec17492",
+    measurementId: "G-2P4HNJ3494"
+  };
+
+  // Inițializează Firebase și Firestore
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  console.log("✅ Firebase conectat cu succes!");
+
+  // Exemplu: adaugă o programare (poți testa în consolă)
+  async function adaugaProgramare() {
+    try {
+      const docRef = await addDoc(collection(db, "programari"), {
+        nume: "Test Pacient",
+        telefon: "0712345678",
+        data: "2025-10-23",
+        ora: "10:00",
+        status: "Nerezolvat"
+      });
+      console.log("Programare adăugată cu ID:", docRef.id);
+    } catch (e) {
+      console.error("Eroare la adăugare:", e);
+    }
+  }
+
+  // Poți apela această funcție manual din consola browserului ca test:
+  // adaugaProgramare();
+</script>
 
 </body>
 </html>
+
